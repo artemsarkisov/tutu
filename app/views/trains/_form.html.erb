@@ -11,6 +11,12 @@
       <%= form.collection_select :current_station_id, RailwayStation.all, :id, :title %>
     </div>
 
+    <div>
+      <%= form.label :route, "Choose route" %>
+      <%= form.collection_select :route_id, Route.all, :id, :name %>
+    </div>
+
+
   <div class="actions">
     <%= form.submit %>
   </div>

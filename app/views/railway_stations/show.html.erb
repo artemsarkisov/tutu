@@ -7,6 +7,8 @@
 
 <% if @railway_station.routes.empty? %>
     <p>Station is not present in any routes</p>
+    <% else %>
+    <strong>Routes:</strong>
     <ul>
       <% @railway_station.routes.each do |route| %>
           <li><%= route.name %></li>
