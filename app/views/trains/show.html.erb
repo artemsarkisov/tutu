@@ -23,5 +23,29 @@
   <% end %>
 </p>
 
+<% if @train.waggons.present? %>
+    <strong>Economy:</strong>
+    <ul>
+      <li>Amount: <%= @train.waggons.where(waggon_type: "Economy").count %></li>
+      <li>Upper shelves: <%= @train.waggons.where(waggon_type: "Economy").sum(:upper_shelf) %></li>
+      <li>Lower shelves: <%= @train.waggons.where(waggon_type: "Economy").sum(:lower_shelf) %></li>
+    </ul>
+
+      <strong>Sleepers:</strong>
+    <ul>
+      <li>Amount: <%= @train.waggons.where(waggon_type: "Sleeper").count %></li>
+      <li>Upper shelves: <%= @train.waggons.where(waggon_type: "Sleeper").sum(:upper_shelf) %></li>
+      <li>Lower shelves: <%= @train.waggons.where(waggon_type: "Sleeper").sum(:lower_shelf) %></li>
+    </ul>
+
+<% else %>
+    None
+    <% end %>
+
+
+
+
+
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
