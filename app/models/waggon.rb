@@ -1,6 +1,6 @@
 class Waggon < ApplicationRecord
 
-  validates_presence_of :waggon_type, :upper_shelf, :lower_shelf
+  validates_presence_of :number
 
   belongs_to :train
 end
