@@ -8,24 +8,40 @@
 <p>
   <strong>On station:</strong>
   <% if @train.current_station.present? %>
-      <%= @train.current_station.title %>
+    <%= @train.current_station.title %>
   <% else %>
-      No current station
+    No current station
   <% end %>
 </p>
 
 <p>
   <strong>Route:</strong>
   <% if @train.route.present? %>
-      <%= @train.route.name %>
+    <%= @train.route.name %>
   <% else %>
-      No route
+    No route
   <% end %>
 </p>
 
+<p><strong>Waggons:</strong></p>
+<% if @train.waggons.present? %>
+  <i>Economy</i>
+  <ul>
+    <li>Waggons: <%= @train.waggons_count("Economy") %></li>
+    <li>Upper shelves:<%= @train.seats_count("Economy", :upper_shelf) %></li>
+    <li>Lower shelves:<%= @train.seats_count("Economy", :lower_shelf) %></li>
+  </ul>
 
-<%= @train.waggons_info("Economy") %>
-<%= @train.waggons_info("Sleeper") %>
+  <i>Sleeper</i>
+  <ul>
+    <li>Waggons: <%= @train.waggons_count("Sleeper") %></li>
+    <li>Upper shelves:<%= @train.seats_count("Sleeper", :upper_shelf) %></li>
+    <li>Lower shelves:<%= @train.seats_count("Sleeper", :lower_shelf) %></li>
+  </ul>
+
+<% else %>
+  <p>The train has no waggons</p>
+<% end %>
 
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
