@@ -1,0 +1,2 @@
+class SleeperWaggon < Waggon
+end
