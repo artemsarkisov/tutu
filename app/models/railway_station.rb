@@ -5,4 +5,10 @@ class RailwayStation < ApplicationRecord
   has_many :routes, through: :railway_stations_routes
 
   validates :title, presence: true
+
+  def number_in_route(route, order_number)
+    station = RailwayStationsRoute.find_by(route: route, railway_station: self)
+    station.position = order_number
+    station.save
+  end
 end
