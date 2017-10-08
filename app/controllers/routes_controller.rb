@@ -31,12 +31,12 @@ class RoutesController < ApplicationController
     else
       render :edit
     end
+  end
 
-    def destroy
-      @route.destroy
-      redirect_to routes_path
-    end
 
+  def destroy
+    @route.destroy
+    redirect_to routes_path
   end
 
   private
@@ -46,6 +46,7 @@ class RoutesController < ApplicationController
   end
 
   def route_params
-    params.require(:route).permit(:name, railway_station_ids: [])
+    params.require(:route).permit(railway_station_ids: [])
   end
+
 end
