@@ -12,3 +12,12 @@ class RailwayStation < ApplicationRecord
     station.save
   end
 end
+
+# Rails Console
+# st = RailwayStation.first
+# st.save
+# st.routes
+# rt = Route.first
+# rt.save
+# rt.railway_stations
+# st.number_in_route(rt, 1)
