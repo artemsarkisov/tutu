@@ -5,7 +5,7 @@ class Waggon < ApplicationRecord
 
   scope :economy, -> { where(type: 'EconomyWaggon') }
   scope :sleeper, -> { where(type: 'SleeperWaggon') }
-  scope :sleeper, -> { where(type: 'LuxeWaggon') }
-  scope :sleeper, -> { where(type: 'SittingWaggon') }
+  scope :luxe, -> { where(type: 'LuxeWaggon') }
+  scope :sitting, -> { where(type: 'SittingWaggon') }
   scope :ordered, -> { order(:number) }
 end
