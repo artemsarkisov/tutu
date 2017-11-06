@@ -1,48 +1,49 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Number:</strong>
+  <strong>Number</strong></br>
   <%= @train.number %>
 </p>
 
-<p>
-  <strong>On station:</strong>
+  <strong>Station</strong></br>
   <% if @train.current_station.present? %>
-    <%= @train.current_station.title %>
+      <%= @train.current_station.title %>
   <% else %>
-    No current station
+      No current station
   <% end %>
 </p>
 
-<p>
-  <strong>Route:</strong>
+ <p><strong>Route</strong></br>
   <% if @train.route.present? %>
-    <%= @train.route.name %>
+      <%= @train.route.name %>
   <% else %>
-    No route
+      No route
   <% end %>
-</p>
+ </p>
 
-<p><strong>Waggons:</strong></p>
-<% if @train.waggons.present? %>
-  <i>Economy</i>
-  <ul>
-    <li>Waggons: <%= @train.waggons_count("Economy") %></li>
-    <li>Upper shelves:<%= @train.seats_count("Economy", :upper_shelf) %></li>
-    <li>Lower shelves:<%= @train.seats_count("Economy", :lower_shelf) %></li>
-  </ul>
 
-  <i>Sleeper</i>
-  <ul>
-    <li>Waggons: <%= @train.waggons_count("Sleeper") %></li>
-    <li>Upper shelves:<%= @train.seats_count("Sleeper", :upper_shelf) %></li>
-    <li>Lower shelves:<%= @train.seats_count("Sleeper", :lower_shelf) %></li>
-  </ul>
+<%= form_with(model: @train, local: true) do |form| %>
 
-<% else %>
-  <p>The train has no waggons</p>
+    <strong>Waggons</strong></br>
+    <% if @train.waggons.present? %>
+        <%= "Amount of waggons:" %>
+        <%= @train.waggons.count %>
+        <p><%= form.submit "Sort" %>
+          <i><%= "sort by tails?" %></i>
+          <%= form.check_box :sort %></p>
+        <p>
+          <% if !@train.sort %></p>
+              <% @train.waggons.head.each do |waggon| %>
+                  <%= link_to waggon.number, waggon_path(waggon) %>
+              <% end %>
+          <% else %>
+              <% @train.waggons.tail.each do |waggon| %>
+                  <%= link_to waggon.number, waggon_path(waggon) %>
+              <% end %>
+          <% end %>
+    <% end %>
+
+    <p><%= link_to 'Edit', edit_train_path(@train) %> |
+      <%= link_to 'Back', trains_path %></p>
 <% end %>
 
-
-<%= link_to 'Edit', edit_train_path(@train) %> |
-<%= link_to 'Back', trains_path %>
