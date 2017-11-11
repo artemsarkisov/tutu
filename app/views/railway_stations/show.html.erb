@@ -6,14 +6,14 @@
 </p>
 
 <% if @railway_station.routes.empty? %>
-  <p>Station is not present in any routes</p>
-<% else %>
-  <strong>Routes:</strong>
-  <ul>
-    <% @railway_station.routes.each do |route| %>
-      <li><%= route.name %></li>
-    <% end %>
-  </ul>
+    <p>Station is not present in any routes</p>
+    <% else %>
+    <strong>Routes:</strong>
+    <ul>
+      <% @railway_station.routes.each do |route| %>
+          <li><%= route.name %></li>
+      <% end %>
+    </ul>
 <% end %>
 
 <%= link_to 'Edit', edit_railway_station_path(@railway_station) %> |

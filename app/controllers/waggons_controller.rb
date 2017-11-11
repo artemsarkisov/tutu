@@ -31,11 +31,12 @@ class WaggonsController < ApplicationController
     else
       render :edit
     end
-  end
 
-  def destroy
-    @waggon.destroy
-    redirect_to waggons_path
+    def destroy
+      @waggon.destroy
+      redirect_to waggons_path
+    end
+
   end
 
   private
@@ -47,5 +48,4 @@ class WaggonsController < ApplicationController
   def waggon_params
     params.require(:waggon).permit(:waggon_type, :upper_shelf, :lower_shelf, :train_id)
   end
-
 end
