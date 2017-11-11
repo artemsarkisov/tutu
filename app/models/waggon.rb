@@ -7,7 +7,7 @@ class Waggon < ApplicationRecord
   TYPES = { EconomyWaggon => 'Economy',
             SleeperWaggon => 'Sleeper',
             SittingWaggon => 'Sitter',
-            LuxeWaggon => 'Luxe' }.freeze
+            LuxeWaggon    => 'Luxe' }.freeze
 
   scope :head, -> { order(:number) }
   scope :tail, -> { order(:number).reverse_order }

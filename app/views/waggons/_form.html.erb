@@ -1,44 +1,44 @@
 <%= form_with(model: @waggon.becomes(Waggon), local: true) do |form| %>
-    <%= render 'common/errors', resource: @waggon %>
+  <%= render 'common/errors', resource: @waggon %>
 
-    <div>
-      <p>
-        <%= form.label :type, "Waggon type" %>
-        <%= form.select :type, Waggon::TYPES.invert.map { |k, v| [k.to_s, v] } %>
-      </p>
+  <div>
+    <p>
+      <%= form.label :type, "Waggon type" %>
+      <%= form.select :type, Waggon::TYPES.invert.map { |k, v| [k.to_s, v] } %>
+    </p>
 
-      <p>
-        <%= form.label :upper_shelf, "Amount of upper shelves" %>
-        <%= form.number_field(:upper_shelf, in: 1..36) %>
-      </p>
+    <p>
+      <%= form.label :upper_shelf, "Amount of upper shelves" %>
+      <%= form.number_field(:upper_shelf, in: 1 .. 36) %>
+    </p>
 
-      <p>
-        <%= form.label :lower_shelf, "Amount of lower shelves" %>
-        <%= form.number_field(:lower_shelf, in: 1..36) %>
-      </p>
+    <p>
+      <%= form.label :lower_shelf, "Amount of lower shelves" %>
+      <%= form.number_field(:lower_shelf, in: 1 .. 36) %>
+    </p>
 
-      <p>
-        <%= form.label :side_upper_shelf, "Amount of side upper shelves" %>
-        <%= form.number_field(:side_upper_shelf, in: 1..36) %>
-      </p>
+    <p>
+      <%= form.label :side_upper_shelf, "Amount of side upper shelves" %>
+      <%= form.number_field(:side_upper_shelf, in: 1 .. 36) %>
+    </p>
 
-      <p>
-        <%= form.label :side_lower_shelf, "Amount of side lower shelves" %>
-        <%= form.number_field(:side_lower_shelf, in: 1..36) %>
-      </p>
+    <p>
+      <%= form.label :side_lower_shelf, "Amount of side lower shelves" %>
+      <%= form.number_field(:side_lower_shelf, in: 1 .. 36) %>
+    </p>
 
-      <p>
-        <%= form.label :seat, "Amount of seats" %>
-        <%= form.number_field(:seat, in: 1..36) %>
-      </p>
+    <p>
+      <%= form.label :seat, "Amount of seats" %>
+      <%= form.number_field(:seat, in: 1 .. 36) %>
+    </p>
 
-      <p>
-        <%= form.label :train, "Choose a train" %>
-        <%= form.collection_select :train_id, Train.all, :id, :number %>
-      </p>
-    </div>
+    <p>
+      <%= form.label :train, "Choose a train" %>
+      <%= form.collection_select :train_id, Train.all, :id, :number %>
+    </p>
+  </div>
 
-    <div class="actions">
-      <%= form.submit "#{ @waggon.becomes(Waggon).new_record? ? 'Create' : 'Edit'}" %>
-    </div>
+  <div class="actions">
+    <%= form.submit "#{ @waggon.becomes(Waggon).new_record? ? 'Create' : 'Edit'}" %>
+  </div>
 <% end %>

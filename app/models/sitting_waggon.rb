@@ -1,3 +1,3 @@
 class SittingWaggon < Waggon
-	validates :seat, presence: true
+  validates :seat, presence: true
 end
