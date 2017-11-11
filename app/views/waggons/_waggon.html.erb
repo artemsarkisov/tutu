@@ -1,0 +1,6 @@
+<tr>
+  <td><%= waggon.number %></td>
+  <td><%= link_to 'Show', waggon_path(waggon) %></td>
+  <td><%= link_to 'Edit', edit_waggon_path(waggon) %></td>
+  <td><%= link_to 'Delete', waggon_path(waggon), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

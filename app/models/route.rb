@@ -9,6 +9,8 @@ class Route < ApplicationRecord
 
   before_validation :set_name
 
+  scope :sort_by_station, ->(route_id) { RailwayStationsRoute.order(:position) }
+
   private
 
   def set_name

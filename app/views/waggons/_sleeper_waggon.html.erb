@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Waggon:</strong>
+
+<ul>
+  <li><i>Number</i>: <%= @waggon.number %></li>
+  <li><i>Type</i>: <%= @waggon.waggon_type %></li>
+  <li><i>Upper shelves</i>: <%= @waggon.upper_shelf %></li>
+  <li><i>Lower shelves</i>: <%= @waggon.lower_shelf %></li>
+  <li><i>Train:</i> <%= @waggon.train.number %></li>
+</ul>
+
+<%= link_to 'Edit', edit_waggon_path(@waggon) %> |
+<%= link_to 'Back', waggons_path %>
