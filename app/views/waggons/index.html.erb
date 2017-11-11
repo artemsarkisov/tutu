@@ -12,12 +12,12 @@
 
   <tbody>
   <% @waggons.each do |waggon| %>
-      <tr>
-        <td><%= waggon.id %></td>
-        <td><%= link_to 'Show', waggon %></td>
-        <td><%= link_to 'Edit', edit_waggon_path(waggon) %></td>
-        <td><%= link_to 'Destroy', waggon, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-      </tr>
+    <tr>
+      <td><%= waggon.id %></td>
+      <td><%= link_to 'Show', waggon %></td>
+      <td><%= link_to 'Edit', edit_waggon_path(waggon) %></td>
+      <td><%= link_to 'Destroy', waggon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
   <% end %>
   </tbody>
 </table>
