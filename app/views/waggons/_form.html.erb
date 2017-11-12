@@ -1,4 +1,5 @@
-<%= form_with(model: @waggon.becomes(Waggon), local: true) do |form| %>
+<%= form_for [@train, @waggon] do |form| %>
+
   <%= render 'common/errors', resource: @waggon %>
 
   <div>
@@ -32,13 +33,9 @@
       <%= form.number_field(:seat, in: 1 .. 36) %>
     </p>
 
-    <p>
-      <%= form.label :train, "Choose a train" %>
-      <%= form.collection_select :train_id, Train.all, :id, :number %>
-    </p>
   </div>
 
   <div class="actions">
-    <%= form.submit "#{ @waggon.becomes(Waggon).new_record? ? 'Create' : 'Edit'}" %>
+    <%= form.submit 'Create' %>
   </div>
 <% end %>

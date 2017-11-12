@@ -21,6 +21,8 @@
   <% end %>
 </p>
 
+<p><%= link_to "Add a waggon", new_train_waggon_path(@train) %></p>
+
 <%= form_with(model: @train, local: true) do |form| %>
 
   <strong>Waggons</strong></br>

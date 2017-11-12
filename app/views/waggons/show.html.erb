@@ -1,13 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Waggon:</strong>
-
-<p>
   <strong>Waggon type</strong>
   <%= @waggon.grab_types.compact.join("") %>
   <%= render @waggon.type.underscore %>
 </p>
 
 <%= link_to 'Edit', edit_waggon_path(@waggon) %> |
-<%= link_to 'Back', waggons_path %>
+<%= link_to 'Back to the train', @waggon.train%>
