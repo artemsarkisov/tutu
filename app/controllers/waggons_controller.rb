@@ -43,7 +43,7 @@ class WaggonsController < ApplicationController
   private
 
   def set_train
-    @train  = Train.find_by(params[:train_id])
+    @train  = Train.find(params[:train_id])
   end
 
   def set_waggon

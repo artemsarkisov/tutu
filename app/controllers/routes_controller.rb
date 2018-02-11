@@ -33,7 +33,6 @@ class RoutesController < ApplicationController
     end
   end
 
-
   def destroy
     @route.destroy
     redirect_to routes_path
@@ -48,5 +47,4 @@ class RoutesController < ApplicationController
   def route_params
     params.require(:route).permit(railway_station_ids: [])
   end
-
 end
