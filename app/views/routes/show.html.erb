@@ -18,6 +18,8 @@
     <tr>
       <td width="100px">Title</td>
       <td>Position</td>
+      <td>Arrival</td>
+      <td>Departure</td>
     </tr>
     </thead>
     <tbody>
@@ -25,9 +27,23 @@
       <tr>
         <td><%= station.title %></td>
         <td>
-        <%= form_tag update_position_railway_station_path(station), method: :patch do %>
-          <%= number_field_tag :position, station.position_in(@route) %>
-          <%= hidden_field_tag :route_id, @route_id %>
+          <%= form_tag update_position_railway_station_path(station), method: :patch do %>
+            <%= number_field_tag :position, station.position_in(@route) %>
+            <%= hidden_field_tag :route_id, @route_id %>
+            <%= submit_tag "Update" %>
+          <% end %>
+        </td>
+        <td>
+          <%= form_tag update_arrival_railway_station_path(station), method: :patch do %>
+            <%= time_field_tag :arrival_date, station.time_in(@route) %>
+            <%= hidden_field_tag :route_id, @route_id %>
+            <%= submit_tag "Update" %>
+          <% end %>
+        </td>
+        <td>
+          <%= form_tag update_departure_railway_station_path(station), method: :patch do %>
+            <%= time_field_tag :departure_date, station.time_in(@route) %>
+            <%= hidden_field_tag :route_id, @route_id %>
             <%= submit_tag "Update" %>
           <% end %>
         </td>

@@ -1,7 +1,7 @@
 class RailwayStationsController < ApplicationController
-  before_action :set_railway_station, only: %i[show edit update destroy update_position update_arrival_date
-                                               update_departure_date]
-  before_action :set_route, only: %i[update_position update_arrival_date update_departure_date]
+  before_action :set_railway_station, only: %i[show edit update destroy update_position update_arrival
+                                               update_departure update_time]
+  before_action :set_route, only: %i[update_position update_arrival update_departure]
 
   def index
     @railway_stations = RailwayStation.all
@@ -56,12 +56,14 @@ class RailwayStationsController < ApplicationController
     redirect_to @route
   end
 
-  def update_arrival_date
+  def update_arrival
     @railway_station.update_time(@route, :arrival_date, params[:arrival_date])
+    redirect_to @route
   end
 
-  def update_departure_date
+  def update_departure
     @railway_station.update_time(@route, :departure_date, params[:departure_date])
+    redirect_to @route
   end
 
   private

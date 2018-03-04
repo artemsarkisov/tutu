@@ -23,8 +23,7 @@ class RailwayStation < ApplicationRecord
   end
 
   def update_time(route, state, time)
-    station_route = station_route(route)
-    station_route.update(state => time)
+    station_route(route).update(state => time)
   end
 
   def time_in(route)
